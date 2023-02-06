@@ -10,8 +10,8 @@ export default function StartScreen({ navigation }: any) {
                 <VStack mt="10" space="2" alignItems="center">
                     <Heading size="lg">DO THIRTY</Heading>
                     <Text textAlign="center">Stay motivated and achieve personal growth through short-term, achievable challenges</Text>
-                    <Button w="60%" mt="4" onPress={() => navigation.navigate('SignUp')}>SIGN UP</Button>
-                    <Button w="60%" mt="2" onPress={() => navigation.navigate('LogIn')}>LOG IN</Button>
+                    <Button w="60%" mt="4" onPress={() => navigation.navigate('Signup')}>SIGN UP</Button>
+                    <Button w="60%" mt="2" onPress={() => navigation.navigate('Login')}>LOG IN</Button>
                 </VStack>
             </ImageBackground>
         </View>

@@ -1,7 +1,6 @@
 import { RootTabScreenProps } from '../../types';
-import { Icon, Heading, View, FlatList, HStack, IconButton } from 'native-base'
+import { View, FlatList } from 'native-base'
 import ChallengeCard from '../../components/ChallengeCard'
-import { MaterialIcons } from '@expo/vector-icons'
 
 const challenges = [
     {
@@ -14,7 +13,7 @@ const challenges = [
         id: 2,
         title: 'Challenge 2',
         duration: 14,
-        image: 'https://picsum.photos/200/300?grayscale&random=2'
+        image: 'https://picsum.photos/200/300?random=2'
     },
     {
         id: 3,
@@ -32,19 +31,13 @@ const challenges = [
         id: 5,
         title: 'Challenge 5',
         duration: 21,
-        image: 'https://picsum.photos/200/300?grayscale&random=5'
+        image: 'https://picsum.photos/200/300?random=5'
     }
 ]
 
-export default function BrowseTab({ navigation }: RootTabScreenProps<'Browse'>) {
+export default function BrowseTab({ navigation }: any) {
   return (
     <View h="100%">
-    <HStack safeAreaTop justifyContent="space-between">
-        <Heading size="sm">Challenges</Heading>
-        <IconButton
-            icon={<Icon as={MaterialIcons} name="search"/>}
-        />
-    </HStack>
     <FlatList w="90%" alignSelf="center" showsVerticalScrollIndicator={false}
         data={challenges}
         renderItem={({ item }) => (
@@ -53,7 +46,7 @@ export default function BrowseTab({ navigation }: RootTabScreenProps<'Browse'>) 
                 title={item.title}
                 duration={item.duration}
                 image={item.image}
-                onPress={() => navigation.navigate('Filter')}
+                onPress={() => navigation.navigate('Challenge', { item: item })}
             />
         )}
     />

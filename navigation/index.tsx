@@ -36,23 +36,17 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Group screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-
-
-      </Stack.Group>
+      <Stack.Screen name="Start" component={StartScreen} options={{ headerShown: false }}/>
+      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Challenge" component={ChallengeScreen} />
       <Stack.Screen name="Day" component={DayScreen} />
-      
-      <Stack.Screen name="Start" component={StartScreen} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
 
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-      <Stack.Screen name="Filter" component={FilterModal} />
+        <Stack.Screen name="Filter" component={FilterModal} />
         <Stack.Screen name="Detail" component={DetailModal} />
         <Stack.Screen name="Login" component={LoginModal} />
         <Stack.Screen name="Signup" component={SignupModal} />
@@ -61,9 +55,7 @@ function RootNavigator() {
   );
 }
 
-
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
-
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
@@ -77,7 +69,6 @@ function BottomTabNavigator() {
         name="Plan"
         component={PlanTab}
         options={{
-          title: 'Plan',
           tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
         }}
       />
@@ -107,7 +98,6 @@ function BottomTabNavigator() {
         name="Profile"
         component={ProfileTab}
         options={{
-          title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="trash" color={color} />,
         }}
       />

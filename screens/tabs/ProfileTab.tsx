@@ -3,7 +3,7 @@ import DarkModeToggle from '../../components/DarkModeToggle'
 
 export default function ProfileTab({ navigation }: any) {
     return (
-    <Center w="100%" _dark={{ bg: "blueGray.800" }} _light={{ bg: "blueGray.200" }}>
+    <Center w="100%" h="100%" _dark={{ bg: "black.200" }} _light={{ bg: "blueGray.200" }}>
       <VStack safeArea p="2" w="90%" py="8" space="2">
         <Heading size="lg" color="coolGray.800" _dark={{
         color: "warmGray.50"
@@ -16,10 +16,10 @@ export default function ProfileTab({ navigation }: any) {
           Click below to log in or sign up
         </Heading>
         <VStack space="3" mt="8">
-        <Button size="lg" onPress={() => navigation.navigate('LogIn')}>
+        <Button size="lg" onPress={() => navigation.navigate('Login')}>
             LOG IN
         </Button>
-        <Button size="lg" variant="outline" onPress={() => navigation.navigate('SignUp')}>
+        <Button size="lg" variant="outline" onPress={() => navigation.navigate('Signup')}>
             SIGN UP
         </Button>
         <Heading mt="10" color="coolGray.600" _dark={{
