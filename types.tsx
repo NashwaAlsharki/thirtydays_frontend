@@ -10,9 +10,9 @@ declare global {
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Challenge: { item: any};
-  Day: { item: any};
-  Detail: { item: any};
+  Challenge: any;
+  Day: any;
+  Detail: any;
   Filter: undefined;
   Signup: undefined;
   Login: undefined;

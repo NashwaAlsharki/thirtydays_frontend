@@ -1,56 +1,51 @@
-import { RootTabScreenProps } from '../../types';
-import { View, FlatList } from 'native-base'
 import ChallengeCard from '../../components/ChallengeCard'
+import { useState, useEffect } from 'react'
+import { View, FlatList } from 'native-base'
+import axios from 'axios'
 
-const challenges = [
-    {
-        id: 1,
-        title: 'Challenge 1',
-        duration: 7,
-        image: 'https://picsum.photos/200/300?grayscale&random=1'
-    },
-    {
-        id: 2,
-        title: 'Challenge 2',
-        duration: 14,
-        image: 'https://picsum.photos/200/300?random=2'
-    },
-    {
-        id: 3,
-        title: 'Challenge 3',
-        duration: 21,
-        image: 'https://picsum.photos/200/300?grayscale&random=3'
-    },
-    {
-        id: 4,
-        title: 'Challenge 4',
-        duration: 21,
-        image: 'https://picsum.photos/200/300?grayscale&random=4'
-    },
-    {
-        id: 5,
-        title: 'Challenge 5',
-        duration: 21,
-        image: 'https://picsum.photos/200/300?random=5'
-    }
-]
+interface Challenge {
+    id: number
+    title: string
+    duration: number
+    joiners: number
+    image_url: string
+}
 
-export default function BrowseTab({ navigation }: any) {
-  return (
-    <View h="100%">
-    <FlatList w="90%" alignSelf="center" showsVerticalScrollIndicator={false}
-        data={challenges}
-        renderItem={({ item }) => (
-            <ChallengeCard
-                key={item.id}
-                title={item.title}
-                duration={item.duration}
-                image={item.image}
-                onPress={() => navigation.navigate('Challenge', { item: item })}
-            />
-        )}
-    />
-</View>
-)
+interface Props {
+    navigation: any
+}
+
+export default function BrowseTab({ navigation }: Props) {
+    const [challenges, setChallenges] = useState<Challenge[]>([])
+    
+    useEffect(() => { fetchChallenges().then(setChallenges)}, [])
+        
+    return (
+        <View h="100%">
+            
+        <FlatList w="90%" alignSelf="center" showsVerticalScrollIndicator={false}
+            data={challenges}
+            renderItem={({ item }: any) => (
+                <ChallengeCard
+                    key = {item.id}
+                    title={item.title}
+                    duration={item.duration}
+                    joiners = {item.joiners}
+                    image = {item.image_url}
+                    onPress={() => navigation.navigate('Challenge', { challenge: item })}
+                />
+            )}
+        />
+    </View>
+    )
 }
     
+const fetchChallenges = async(): Promise<Challenge[]> => {
+    try {
+        const response = await axios.get<Challenge[]>('http://127.0.0.1:8000/challenges')
+        return response.data
+    } catch (error) {
+        console.log(error);
+        return []
+    }
+}

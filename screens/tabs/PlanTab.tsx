@@ -5,9 +5,7 @@ export default function PlanTab({ route, navigation }: any) {
         <View>
             <Text>Plan</Text>
             <Text>{route.name}</Text>
-            <Button onPress={() => navigation.navigate('Browse')}>
-                <Text>Browse</Text>
-            </Button>
+            <Button onPress={() => navigation.navigate('Browse')}>Browse</Button>
         </View>
     )
 }
