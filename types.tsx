@@ -12,6 +12,8 @@ export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Challenge: any;
   Day: any;
+  CreateChallenge: any;
+  AddDay: any;
   Detail: any;
   Filter: undefined;
   Signup: undefined;
@@ -28,6 +30,7 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 export type RootTabParamList = {
   Plan: undefined;
   Browse: undefined;
+  Create: undefined;
   Profile: undefined;
 };
 

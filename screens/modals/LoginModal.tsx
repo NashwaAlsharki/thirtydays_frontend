@@ -13,7 +13,7 @@ export default function LogInModal({ navigation}: any ) {
               <FormControl.Label>Password</FormControl.Label>
               <Input type="password" size="lg" />
             </FormControl>
-            <Button mt="2" onPress={()=> navigation.navigate('Root')} >LOG IN</Button>
+            <Button mt="2" onPress={()=> navigation.navigate('Root')} >DEMO LOG IN</Button>
             <Center>
               <Link>Forget Password?</Link>
             </Center>

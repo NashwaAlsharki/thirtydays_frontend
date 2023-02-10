@@ -1,4 +1,4 @@
-import { FontAwesome } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,9 +11,12 @@ import useColorScheme from '../hooks/useColorScheme';
 import PlanTab from '../screens/tabs/PlanTab';
 import BrowseTab from '../screens/tabs/BrowseTab';
 import ProfileTab from '../screens/tabs/ProfileTab';
+import CreateTab from '../screens/tabs/CreateTab';
 
 import ChallengeScreen from '../screens/ChallengeScreen';
 import DayScreen from '../screens/DayScreen';
+import CreateChallengeScreen from '../screens/CreateChallengeScreen';
+import AddDayScreen from '../screens/AddDayScreen';
 import StartScreen from '../screens/StartScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 
@@ -43,6 +46,8 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="Challenge" component={ChallengeScreen} />
       <Stack.Screen name="Day" component={DayScreen} />
+      <Stack.Screen name="CreateChallenge" component={CreateChallengeScreen} options={{ title: 'Create Challenge' }}/>
+      <Stack.Screen name="AddDay" component={AddDayScreen} options={{ title: 'Add Day' }}/>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
 
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
@@ -84,8 +89,8 @@ function BottomTabNavigator() {
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
-              <FontAwesome
-                name="search"
+              <Feather
+                name="filter"
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -95,10 +100,17 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
+        name="Create"
+        component={CreateTab}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="plus-square" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
         name="Profile"
         component={ProfileTab}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="trash" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -106,8 +118,8 @@ function BottomTabNavigator() {
 }
 
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof Feather>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <Feather size={28} style={{ marginBottom: -3 }} {...props} />;
 }

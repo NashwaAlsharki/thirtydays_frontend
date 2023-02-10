@@ -22,11 +22,18 @@ const linking: LinkingOptions<RootStackParamList> = {
               DayScreen: 'Day',
             },
           },
+          Create: {
+            screens: {
+              CreateTab: 'Create',
+              CreateChallengeScreen: 'CreateChallenge',
+              AddDayScreen: 'AddDay',
+            },
+          },
           Profile: {
             screens: {
               ProfileTab: 'Profile',
-        },
-      },
+            },
+          },
     },
   },
       Filter: 'Filter',

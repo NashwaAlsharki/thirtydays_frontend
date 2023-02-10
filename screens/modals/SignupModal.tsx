@@ -17,7 +17,7 @@ export default function SignUpModal({ navigation }: any) {
             <FormControl.Label>Confirm Password</FormControl.Label>
             <Input type="password" size="xl"/>
           </FormControl>
-          <Button onPress={()=> navigation.navigate('Root')} mt="2">SIGN UP</Button>
+          <Button onPress={()=> navigation.navigate('Root')} mt="2">DEMO SIGN UP</Button>
         </VStack>
       </Box>
     </Center>
