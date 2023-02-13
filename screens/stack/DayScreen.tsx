@@ -1,4 +1,4 @@
-import ExcerciseCard from '../components/ExcerciseCard';
+import ExcerciseCard from '../../components/ExcerciseCard';
 import { RouteProp } from '@react-navigation/native'
 import { View, Text, FlatList } from 'native-base';
 import axios from 'axios';

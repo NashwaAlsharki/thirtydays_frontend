@@ -13,11 +13,11 @@ import BrowseTab from '../screens/tabs/BrowseTab';
 import ProfileTab from '../screens/tabs/ProfileTab';
 import CreateTab from '../screens/tabs/CreateTab';
 
-import ChallengeScreen from '../screens/ChallengeScreen';
-import DayScreen from '../screens/DayScreen';
-import CreateChallengeScreen from '../screens/CreateChallengeScreen';
-import AddDayScreen from '../screens/AddDayScreen';
-import StartScreen from '../screens/StartScreen';
+import ChallengeScreen from '../screens/stack/ChallengeScreen';
+import DayScreen from '../screens/stack/DayScreen';
+import CreateChallengeScreen from '../screens/stack/CreateChallengeScreen';
+import AddDayScreen from '../screens/stack/AddDayScreen';
+import StartScreen from '../screens/stack/StartScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 
 import DetailModal from '../screens/modals/DetailModal';

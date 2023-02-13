@@ -1,7 +1,8 @@
 import { View, Text, Heading, Button, VStack} from 'native-base'
 import { ImageBackground } from 'react-native'
+import DarkModeToggle from '../../components/DarkModeToggle';
 
-const image = {uri: 'https://images.pexels.com/photos/943747/pexels-photo-943747.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'};
+const image = {uri: 'https://images.pexels.com/photos/3772233/pexels-photo-3772233.jpeg'};
 
 export default function StartScreen({ navigation }: any) {
     return (
@@ -12,6 +13,7 @@ export default function StartScreen({ navigation }: any) {
                     <Text textAlign="center">Stay motivated and achieve personal growth through short-term, achievable challenges</Text>
                     <Button w="60%" mt="4" onPress={() => navigation.navigate('Signup')}>SIGN UP</Button>
                     <Button w="60%" mt="2" onPress={() => navigation.navigate('Login')}>LOG IN</Button>
+                    <DarkModeToggle />
                 </VStack>
             </ImageBackground>
         </View>

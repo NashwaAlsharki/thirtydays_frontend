@@ -1,9 +1,11 @@
+import { Center, FlatList, Text, View, Button } from 'native-base'
 import { RouteProp } from '@react-navigation/native'
-import { Center, FlatList, Text, View } from 'native-base'
-import DayIcon from '../components/DayIcon'
+import DayIcon from '../../components/DayIcon'
+import axios from 'axios'
 
 
 interface Challenge {
+    _id: string
     description: string
     days: Day[]
 }
@@ -34,7 +36,19 @@ export default function ChallengeScreen({ navigation, route }: Props ) {
                         />
                     )}
                 />
+            <Button>Join Challenge</Button>
             </Center>
         </View>
     )
+}
+
+const joinChallenge = async (challengeId: string, userId: string) => {
+    try {
+        const response = await axios.post('http://127.0.0.1:8000/challenges'+ challengeId + '/join/' + userId)
+        alert ("You joined the challenge!")
+        console.log(response.data)
+    } catch (error) {
+        console.log(error)
+        return error
+    }
 }
