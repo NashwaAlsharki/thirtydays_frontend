@@ -7,7 +7,6 @@ interface Challenge {
     id: number
     title: string
     duration: number
-    joiners: number
     image_url: string
 }
 
@@ -21,16 +20,14 @@ export default function BrowseTab({ navigation }: Props) {
     useEffect(() => { fetchChallenges().then(setChallenges)}, [])
         
     return (
-        <View h="100%">
-            
-        <FlatList w="90%" alignSelf="center" showsVerticalScrollIndicator={false}
+        <View h="100%" color="dark.600">
+        <FlatList w="85%" alignSelf="center" showsVerticalScrollIndicator={false}
             data={challenges}
             renderItem={({ item }: any) => (
                 <ChallengeCard
                     key = {item.id}
                     title={item.title}
                     duration={item.duration}
-                    joiners = {item.joiners}
                     image = {item.image_url}
                     onPress={() => navigation.navigate('Challenge', { challenge: item })}
                 />

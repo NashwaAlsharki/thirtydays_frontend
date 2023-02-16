@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NativeBaseProvider, useColorMode } from 'native-base';
-import { UserProvider } from './UserContext';
+import { NativeBaseProvider } from 'native-base';
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
-useColorMode().setColorMode('dark');
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -17,14 +15,12 @@ export default function App() {
     return null;
   } else {
     return (
-      <UserProvider>
-        <NativeBaseProvider>
-          <SafeAreaProvider>
-            <Navigation colorScheme={colorScheme} />
-            <StatusBar />
-          </SafeAreaProvider>
-        </NativeBaseProvider>
-      </UserProvider>
-    );
+      <NativeBaseProvider>
+        <SafeAreaProvider>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </SafeAreaProvider>
+      </NativeBaseProvider>
+  );
   }
 }

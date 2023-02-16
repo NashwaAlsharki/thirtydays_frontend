@@ -28,9 +28,9 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  Plan: object;
+  Plan: any;
   Browse: undefined;
-  Create: any;
+  Create: undefined;
   Profile: any;
 };
 

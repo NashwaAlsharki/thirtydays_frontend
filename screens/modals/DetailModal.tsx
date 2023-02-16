@@ -1,4 +1,4 @@
-import { View, Text, Heading, Image, VStack } from 'native-base'
+import { View, Text, Heading, Image, VStack, Divider } from 'native-base'
 import { RouteProp } from '@react-navigation/native'
 import {  useState, useEffect } from 'react'
 import { Animated } from 'react-native'
@@ -21,16 +21,20 @@ interface Props {
 export default function DetailModal({ route }: Props) {
     const { exercise } = route.params as { exercise: Exercise }
     return (
-        <View>
-            <VStack space={4} alignItems="center">
+        <View h="100%">
+            <VStack mx="8px" mt="5" space={3} alignItems="center">
                 {Animation(exercise.image_urls)}
                 <Heading>{exercise.title}</Heading>
-                <Text>{exercise.primer}</Text>
-                <Text>{exercise.primary}</Text>
-                <Text>{exercise.secondary}</Text>
-                <Text>{exercise.equipment}</Text>
-                <Text>{exercise.steps}</Text>
-                <Text>{exercise.tips}</Text>
+                <Text fontSize="md" textAlign="center">{exercise.primer}</Text>
+                <Divider orientation="horizontal" thickness="2" bg="cyan.400" />
+                <Text>Primary:     {exercise.primary}</Text>
+                <Text>Secondary:      {exercise.secondary}</Text>
+                <Text>Equipment:      {exercise.equipment}</Text>
+                <Text color="cyan.400">Steps:</Text>
+                <Divider orientation="horizontal" thickness="2" bg="cyan.400" />
+                <Text mx="3px">{exercise.steps}</Text>
+                <Divider orientation="horizontal" thickness="2" bg="cyan.400" />
+                <Text>Tips: {exercise.tips}</Text>
             </VStack>
         </View>
     )

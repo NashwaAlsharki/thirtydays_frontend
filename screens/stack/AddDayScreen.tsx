@@ -1,52 +1,15 @@
-import { View, Heading, Text } from 'native-base';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-interface Challenge {
-    title: string,
-}
-
-interface Day {
-    number: number,
-    exercises: []
-}
-
-interface Exercise {
-    _id: number,
-    image: string,
-    title: string,
-    reps: number,
-}
-
-
-interface Props {
-    route: Challenge
-}
+import { View, Box, VStack, Center, Heading } from 'native-base';
 
 export default function AddDayScreen() {
-    const [exercises, setExercises] = useState<Exercise[]>([])
-    const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([])
-    const [muscle, setMuscle] = useState<string>('All')
-    
-    useEffect(() => { fetchExercises(muscle).then(setExercises) }, [muscle])
-
     return (
-        <View>
-            <Heading>Day 1</Heading>
+        <View w="100%">
+            <Center>
+            <Box safeArea w="80%">
+                <VStack space={2} mt={5}>
+                    <Heading size="md" mb="2">Step 1: Add Challenge Details</Heading>
+                </VStack>
+            </Box>
+            </Center>
         </View>
     )
-
 }
-
-
-
-const fetchExercises = async (muscle: string) => {
-    try {
-        const response = await axios.get('http://127.0.0.1:8000/exercises?muscle=' + muscle)
-        return response.data
-    } catch (error) {
-        console.log(error)
-        return []
-    }
-}
-

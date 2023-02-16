@@ -25,7 +25,7 @@ export default function LogInModal({ navigation}: Props ) {
             <FormControl.Label>Password</FormControl.Label>
             <Input type="password" size="lg" onChangeText={(text) => setUser({...user, password: text})}/>
           </FormControl>
-          <Button mt="2" onPress={()=> logIn(user.email, user.password, navigation)} >DEMO LOGIN</Button>
+          <Button mt="2" onPress={()=> logIn(user.email, user.password, navigation)} >LOG IN</Button>
           <Center>
             <Link>Forget Password?</Link>
           </Center>
